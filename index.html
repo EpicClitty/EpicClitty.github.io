@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>W3.CSS Template</title>
+<title>Epic Kitty - Commming Sooooon...</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
-  background-image: url('Background.jpg');
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/css.css">
 </head>
 <body>
+<div class="container bg">
+  <img src="img/logo1.png" class="logo">
+  <div class="content">
+    <p>We are Under Maintenance</p>
+    <h1>COMING <span>SOON</span></h1>
+    <div class="launch-time">
 
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Logo
-  </div>
-  <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:40%">
-    <p class="w3-large w3-center">35 days left</p>
-  </div>
-  <div class="w3-display-bottomleft w3-padding-large">
-    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+      <div>
+        <p id="days">00</p>
+        <span>Days</span>
+      </div>
+
+      <div>
+        <p id="hours">00</p>
+        <span>Hours</span>
+      </div>
+
+      <div>
+        <p id="minutes">00</p>
+        <span>Minutes</span>
+      </div>
+
+      <div>
+        <p id="seconds">00</p>
+        <span>Seconds</span>
+      </div>
+    </div>
+    <button>There is Nothing to Learn More</button>
   </div>
 </div>
-
 </body>
+
+<script>
+  var countDownDate = new Date("Dec 31, 2023 00:00:00").getTime();
+  var x = setInterval(function(){
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+    
+    if(distance < 0){
+      clearInterval(x);
+      document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+    }
+
+  },1000);
+</script>
 </html>
